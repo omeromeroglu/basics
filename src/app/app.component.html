@@ -5,6 +5,9 @@
 </app-post>
 
 
-<p>hello world {{name.toUpperCase()}}</p>
+<p>hello {{name | titlecase}} </p>
 <p>hello world {{getName()}}</p>
 <p>{{15+13}}</p>
+<p>{{currentDate | date : "MMMM d"}}</p>
+<p> {{cost | currency}} </p>
+<p> {{ temprature | number: "2.0-0" }} </p>
