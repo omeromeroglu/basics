@@ -1,13 +1,27 @@
-<input (keyup)="changeImage($event)" [value]="imgURL">
+<p *ngIf = "blueClass">Button is blue</p>
 
-<app-post [img]="imgURL" (imgSelected)="logImg($event)">
-  <p>adasd</p>
+
+<button
+
+  (click)="blueClass = !blueClass"
+  [ngClass]="{ blue: blueClass }"
+  [ngStyle]="{ 'font-size.px': fontSize }"
+>
+  Change
+</button>
+
+<hr />
+
+<input (keyup)="changeImage($event)" [value]="imgURL" />
+
+<app-post  *ngFor="let image of images ; let i= index"
+ [img]="image" (imgSelected)="logImg($event)">
+  <p> {{i}} adasd</p>
 </app-post>
 
-
-<p>hello {{name | titlecase}} </p>
-<p>hello world {{getName()}}</p>
-<p>{{15+13}}</p>
-<p>{{currentDate | date : "MMMM d"}}</p>
-<p> {{cost | currency}} </p>
-<p> {{ temprature | number: "2.0-0" }} </p>
+<p>hello {{ name | titlecase }}</p>
+<p>hello world {{ getName() }}</p>
+<p>{{ 15 + 13 }}</p>
+<p>{{ currentDate | date: "MMMM d" }}</p>
+<p>{{ cost | currency }}</p>
+<p>{{ temprature | number: "2.0-0" }}</p>
